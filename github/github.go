@@ -8,7 +8,8 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"../../webhooks"
+	// "../../webhooks"
+	"github.com/octoberstorm/webhooks.v2"
 )
 
 // Webhook instance contains all methods needed to process events

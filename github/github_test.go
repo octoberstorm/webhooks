@@ -11,7 +11,7 @@ import (
 
 	. "gopkg.in/go-playground/assert.v1"
 	// "gopkg.in/go-playground/webhooks.v2"
-	"../../webhooks"
+	"github.com/octoberstorm/webhooks.v2"
 )
 
 // NOTES:
