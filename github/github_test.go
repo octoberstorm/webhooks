@@ -2,6 +2,7 @@ package github
 
 import (
 	"bytes"
+	"encoding/json"
 	"net/http"
 	"os"
 	"strconv"
@@ -9,7 +10,8 @@ import (
 	"time"
 
 	. "gopkg.in/go-playground/assert.v1"
-	"gopkg.in/go-playground/webhooks.v2"
+	// "gopkg.in/go-playground/webhooks.v2"
+	"../../webhooks"
 )
 
 // NOTES:
@@ -1475,6 +1477,18 @@ func TestIssueCommentEvent(t *testing.T) {
 	Equal(t, err, nil)
 
 	defer resp.Body.Close()
+
+	var pl IssueCommentPayload
+	json.Unmarshal([]byte(payload), &pl)
+
+	Equal(t, pl.Issue.Title, "Spelling error in the README file")
+
+	Equal(t, pl.Repository.Name, "public-repo")
+
+	Equal(t, pl.Issue.User.Login, "baxterthehacker")
+	Equal(t, pl.Sender.Login, "baxterthehacker")
+
+	Equal(t, pl.Comment.Body, "You are totally right! I'll get this fixed right away.")
 
 	Equal(t, resp.StatusCode, http.StatusOK)
 }

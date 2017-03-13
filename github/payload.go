@@ -120,6 +120,7 @@ type MemberPayload struct {
 type IssuesPayload struct {
 	Action     string     `json:"action"`
 	Issue      Issue      `json:"issue"`
+	Comment    Comment    `json:"comment`
 	Repository Repository `json:"repository"`
 	Sender     Sender     `json:"sender"`
 }
@@ -127,7 +128,7 @@ type IssuesPayload struct {
 // IssueCommentPayload contains the information for GitHub's issue_comment hook event
 type IssueCommentPayload struct {
 	IssuesPayload
-	Comment Comment `json:"comment"`
+	// Comment Comment `json:"comment"`
 }
 
 // GollumPayload contains the information for GitHub's gollum hook event
@@ -322,14 +323,15 @@ type Commiter struct {
 
 // Comment contains GitHub's comment information
 type Comment struct {
-	URL       string    `json:"url"`
-	HTMLURL   string    `json:"html_url"`
-	ID        int       `json:"id"`
-	User      User      `json:"user"`
-	Position  int       `json:"position"`
-	Line      int       `json:"line"`
-	Path      string    `json:"path"`
-	CommitID  string    `json:"commit_id"`
+	URL      string `json:"url"`
+	HTMLURL  string `json:"html_url"`
+	IssueURL string `json:"issue_url"`
+	ID       int    `json:"id"`
+	User     User   `json:"user"`
+	// Position  int       `json:"position"`
+	// Line      int       `json:"line"`
+	// Path      string    `json:"path"`
+	// CommitID  string    `json:"commit_id"`
 	CreatedAt time.Time `json:"created_at"`
 	UpdatedAt time.Time `json:"updated_at"`
 	Body      string    `json:"body"`
