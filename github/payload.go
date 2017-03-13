@@ -242,17 +242,17 @@ type Repository struct {
 	SSHURL           string    `json:"ssh_url"`
 	CloneURL         string    `json:"clone_url"`
 	SVNURL           string    `json:"svn_url"`
-	Homepage         string    `json:"homepage"`
+	Homepage         *string   `json:"homepage"`
 	Size             int       `json:"size"`
 	StargazersCount  int       `json:"stargazers_count"`
 	WatchersCount    int       `json:"watchers_count"`
-	Language         string    `json:"language"`
+	Language         *string   `json:"language"`
 	HasIssues        bool      `json:"has_issues"`
 	HasDownloads     bool      `json:"has_downloads"`
 	HasWiki          bool      `json:"has_wiki"`
 	HasPages         bool      `json:"has_pages"`
 	ForksCount       int       `json:"forks_count"`
-	MirrorURL        string    `json:"mirror_url"`
+	MirrorURL        *string   `json:"mirror_url"`
 	OpenIssuesCount  int       `json:"open_issues_count"`
 	Forks            int       `json:"forks"`
 	OpenIssues       int       `json:"open_issues"`
@@ -393,25 +393,25 @@ type Label struct {
 
 // Issue contains GitHub's issue information
 type Issue struct {
-	URL         string    `json:"url"`
-	LabelsURL   string    `json:"labels_url"`
-	CommentsURL string    `json:"comments_url"`
-	EventsURL   string    `json:"events_url"`
-	HTMLURL     string    `json:"html_url"`
-	ID          int       `json:"id"`
-	Number      int       `json:"number"`
-	Title       string    `json:"title"`
-	User        User      `json:"user"`
-	Labels      []Label   `json:"labels"`
-	State       string    `json:"state"`
-	Locked      bool      `json:"locked"`
-	Assignee    string    `json:"assignee"`
-	Milestone   string    `json:"milestone"`
-	Comments    int       `json:"comments"`
-	CreatedAt   time.Time `json:"created_at"`
-	UpdatedAt   time.Time `json:"updated_at"`
-	ClosedAt    time.Time `json:"closed_at"`
-	Body        string    `json:"body"`
+	URL         string     `json:"url"`
+	LabelsURL   string     `json:"labels_url"`
+	CommentsURL string     `json:"comments_url"`
+	EventsURL   string     `json:"events_url"`
+	HTMLURL     string     `json:"html_url"`
+	ID          int        `json:"id"`
+	Number      int        `json:"number"`
+	Title       string     `json:"title"`
+	User        User       `json:"user"`
+	Labels      []Label    `json:"labels"`
+	State       string     `json:"state"`
+	Locked      bool       `json:"locked"`
+	Assignee    *string    `json:"assignee"`
+	Milestone   *string    `json:"milestone"`
+	Comments    int        `json:"comments"`
+	CreatedAt   time.Time  `json:"created_at"`
+	UpdatedAt   time.Time  `json:"updated_at"`
+	ClosedAt    *time.Time `json:"closed_at"`
+	Body        string     `json:"body"`
 }
 
 // Team contains GitHub's team information
