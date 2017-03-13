@@ -9,7 +9,7 @@ import (
 	"net/http"
 
 	// "../../webhooks"
-	"github.com/octoberstorm/webhooks.v2"
+	"github.com/octoberstorm/webhooks"
 )
 
 // Webhook instance contains all methods needed to process events
