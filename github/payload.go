@@ -78,10 +78,11 @@ type PullRequestPayload struct {
 
 // PullRequestReviewCommentPayload contains the information for GitHub's pull_request_review_comment hook event
 type PullRequestReviewCommentPayload struct {
-	Action     string             `json:"action"`
-	Comment    PullRequestComment `json:"comment"`
-	Repository Repository         `json:"repository"`
-	Sender     Sender             `json:"sender"`
+	Action      string             `json:"action"`
+	Comment     PullRequestComment `json:"comment"`
+	Repository  Repository         `json:"repository"`
+	Sender      Sender             `json:"sender"`
+	PullRequest PullRequest        `json:"pull_request"`
 }
 
 // PublicPayload contains the information for GitHub's public hook event
