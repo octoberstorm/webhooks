@@ -44,6 +44,7 @@ const (
 	PublicEvent                   Event = "public"
 	PullRequestReviewCommentEvent Event = "pull_request_review_comment"
 	PullRequestEvent              Event = "pull_request"
+	PullRequestReviewEvent        Event = "pull_request_review"
 	PushEvent                     Event = "push"
 	RepositoryEvent               Event = "repository"
 	ReleaseEvent                  Event = "release"
@@ -192,6 +193,10 @@ func (hook Webhook) ParsePayload(w http.ResponseWriter, r *http.Request) {
 		hook.runProcessPayloadFunc(fn, p, hd)
 	case PullRequestEvent:
 		var p PullRequestPayload
+		json.Unmarshal([]byte(payload), &p)
+		hook.runProcessPayloadFunc(fn, p, hd)
+	case PullRequestReviewEvent:
+		var p PullRequestReviewPayload
 		json.Unmarshal([]byte(payload), &p)
 		hook.runProcessPayloadFunc(fn, p, hd)
 	case PushEvent:
